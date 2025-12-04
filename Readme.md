@@ -75,34 +75,34 @@ Hence, it was selected as the final model for deployment.
 - Ensures the output remains between 0 and 100  
 - Returns result to UI
 
-### Frontend (HTML/CSS)
-- Clean input form  
-- Sends form data to `/predict`  
-- Displays predicted exam score
+### Frontend (Next.js + React)
+- Modern, responsive UI with light theme
+- Professional form layout with organized inputs
+- Real-time prediction display on the same page
+- Built with Next.js 14, React, and Tailwind CSS
 
 ### Project Structure
 
 student-performance-app/
 │
-
 ├── backend/
-
 │ ├── app.py
-
-│ ├── requirements.txt
-
+│ └── requirements.txt
 │
 ├── frontend/
-
-│ ├── index.html
-
-│ └── style.css
-
+│ ├── app/
+│ │ ├── layout.tsx
+│ │ ├── page.tsx
+│ │ └── globals.css
+│ ├── components/
+│ ├── package.json
+│ ├── tsconfig.json
+│ ├── next.config.js
+│ ├── tailwind.config.js
+│ └── postcss.config.js
 │
 ├── models/
-
-│ └── lasso_pipeline.joblib
-
+│ └── ridge_pipeline.joblib
 │
 └── README.md
 
@@ -121,12 +121,43 @@ python -m venv venv
 venv\Scripts\activate
 
 
-### 3. Install Dependencies
-pip install -r backend/requirements.txt
+### 3. Install Backend Dependencies
+cd backend
+pip install -r requirements.txt
+cd ..
 
+### 3.5. (Optional) Setup Gemini AI for Suggestions
+To enable AI-powered improvement suggestions:
+1. Get a free API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Set the environment variable:
+   - Windows: `set GEMINI_API_KEY=your-api-key-here`
+   - Linux/Mac: `export GEMINI_API_KEY="your-api-key-here"`
+3. See `backend/GEMINI_SETUP.md` for detailed instructions
 
-### 4. Run the Flask Backend
+Note: The app works without the API key, but suggestions won't be generated.
+
+### 4. Install Frontend Dependencies
+cd frontend
+npm install
+cd ..
+
+### 5. Run the Application
+
+**Terminal 1 - Start Flask Backend:**
+```bash
 python backend/app.py
+```
+The backend will run on `http://127.0.0.1:5000`
+
+**Terminal 2 - Start Next.js Frontend:**
+```bash
+cd frontend
+npm run dev
+```
+The frontend will run on `http://localhost:3000`
+
+### 6. Access the Application
+Open your browser and navigate to `http://localhost:3000`
 
 
 ---
