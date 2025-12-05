@@ -1,11 +1,13 @@
 venv/
 __pycache__/
+backend/.pytest_cache
 
 # Next.js
 frontend/.next/
 frontend/out/
 frontend/node_modules/
 frontend/.env*.local
+frontend/.swc
 
 # Python
 *.pyc

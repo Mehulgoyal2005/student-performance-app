@@ -159,10 +159,57 @@ The frontend will run on `http://localhost:3000`
 ### 6. Access the Application
 Open your browser and navigate to `http://localhost:3000`
 
+---
+
+## 6. Testing & Coverage
+
+The project includes comprehensive integration testing for both backend and frontend with coverage reporting.
+
+### Running Tests
+
+**Run all tests:**
+```bash
+bash run-tests.sh
+```
+
+**Backend Tests (Python/pytest):**
+```bash
+cd backend
+pip install -r requirements.txt
+pytest tests/test_integration.py --cov
+```
+
+**Frontend Tests (Jest):**
+```bash
+cd frontend
+npm install
+npm run test:coverage
+```
+
+### Coverage Reports
+
+After running tests, view coverage reports:
+
+- **Backend:** `backend/htmlcov/index.html`
+- **Frontend:** `frontend/coverage/lcov-report/index.html`
+
+### Test Statistics
+
+- **Backend:** 20 integration tests across 5 test classes
+- **Frontend:** 22 component tests across 7 test suites
+- **Total:** 42 automated tests
+
+### Testing Documentation
+
+For detailed information on testing:
+- 📖 **Comprehensive Guide:** [`TESTING.md`](./TESTING.md)
+- 📋 **Quick Summary:** [`TESTING_SUMMARY.md`](./TESTING_SUMMARY.md)
+- ✅ **Verification Checklist:** [`TESTING_CHECKLIST.md`](./TESTING_CHECKLIST.md)
+- 🎨 **Visual Guide:** [`TESTING_VISUAL_GUIDE.md`](./TESTING_VISUAL_GUIDE.md)
 
 ---
 
-## 6. Team Members  
+## 7. Team Members  
 (Add your names below)
 
 1. Mehul Goyal (2023ucp1603) 
@@ -172,6 +219,6 @@ Open your browser and navigate to `http://localhost:3000`
 
 ---
 
-## 7. Submitted To  
+## 8. Submitted To  
 **Professor Dr. Vikas Kumar**  
 Course Project: **Software Engineering**

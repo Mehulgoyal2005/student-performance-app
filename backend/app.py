@@ -231,6 +231,21 @@ def predict():
         # Handle both JSON and form data
         if request.is_json:
             json_data = request.get_json()
+            # Validate required fields in JSON
+            required_fields = [
+                "age",
+                "study_hours_per_day",
+                "social_media_hours",
+                "attendance_percentage",
+                "sleep_hours",
+                "exercise_frequency",
+            ]
+            missing = [f for f in required_fields if f not in json_data or json_data.get(f) is None]
+            if missing:
+                return jsonify({
+                    "success": False,
+                    "error": f"Missing required fields: {', '.join(missing)}"
+                }), 400
             data = {
                 "age": [int(json_data.get("age", 18))],
                 "gender": [normalize_str(json_data.get("gender"))],
@@ -246,6 +261,22 @@ def predict():
                 "extracurricular_participation": [normalize_str(json_data.get("extracurricular_participation"))]
             }
         else:
+            # Validate required fields in form data
+            required_fields = [
+                "age",
+                "study_hours_per_day",
+                "social_media_hours",
+                "attendance_percentage",
+                "sleep_hours",
+                "exercise_frequency",
+            ]
+            missing = [f for f in required_fields if not request.form.get(f)]
+            if missing:
+                return jsonify({
+                    "success": False,
+                    "error": f"Missing required fields: {', '.join(missing)}"
+                }), 400
+
             data = {
                 "age": [int(request.form.get("age", 18))],
                 "gender": [normalize_str(request.form.get("gender"))],
