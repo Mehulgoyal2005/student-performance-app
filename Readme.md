@@ -9,7 +9,7 @@ The project includes:
 - Training multiple ML models  
 - Comparing model performances  
 - Selecting and deploying the best model (Lasso Regression)  
-- Building a complete web application (HTML/CSS + Flask backend)
+- Building a complete web application (React + Flask backend)
 
 ---
 
