@@ -199,6 +199,16 @@ After running tests, view coverage reports:
 - **Frontend:** 22 component tests across 7 test suites
 - **Total:** 42 automated tests
 
+#running on local device 
+backend 
+venv\Scripts\activate
+python backend/app.py
+
+frontend
+cd frontend
+npm install   (only if not done already)
+npm run dev
+
 ### Testing Documentation
 
 For detailed information on testing:
